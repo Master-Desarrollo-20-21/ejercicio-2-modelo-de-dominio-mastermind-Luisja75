@@ -1,0 +1,14 @@
+@startuml
+
+title MASTERMIND - States Diagram
+
+[*] --> ProposedSecretCombination : J1 - Propose secret combination
+ProposedSecretCombination --> ProposedCombination : J2 - Propose combination
+ProposedCombination --> Win : [Correct]
+ProposedCombination --> WrongCombination : [Incorrect]
+WrongCombination --> Lost : [Attempts > 12]
+WrongCombination --> ProposedCombination  : [Attempts <= 12] / J2 - Propose combination
+Win --> [*]
+Lost --> [*]
+
+@enduml

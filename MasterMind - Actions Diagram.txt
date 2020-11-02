@@ -1,0 +1,15 @@
+@startuml
+
+title MASTERMIND - Actions Diagram
+
+[*] --> J1_ProposeSecretCombination
+J1_ProposeSecretCombination --> J2_ProposeCombination
+J2_ProposeCombination --> Win : Correct
+J2_ProposeCombination --> CheckNumberAttempts
+CheckNumberAttempts --> Lost : Attempts > 12
+CheckNumberAttempts --> ShowResults  : Attempts <= 12
+ShowResults --> J2_ProposeCombination
+Win --> [*]
+Lost --> [*]
+
+@enduml

@@ -1,0 +1,90 @@
+@startuml
+
+title MASTERMIND - Class Diagram
+
+class Mastermind {
+}
+
+class Player1 {
+}
+
+class Player2 {
+}
+
+class Board {
+}
+
+class SecretRow {
+}
+
+class ProposedRows {
+}
+
+class ResultRows {
+}
+
+class ResultGame {
+}
+
+class tokensCombination {
+}
+
+class tokensResult {
+}
+
+class ColorResultBlack {
+}
+
+class ColorResultWhite {
+}
+
+class ColorTokenRed {
+}
+
+class ColorTokenBlue {
+}
+
+class ColorTokenGreen {
+}
+
+class ColorTokenYellow {
+}
+
+class ColorTokenPink {
+}
+
+class ColorTokenWhite {
+}
+
+class ColorTokenBlack {
+}
+
+class ColorTokenBrown {
+}
+
+
+Mastermind "1" *-- "1" Player1
+Player1 ..> SecretRow
+Player1 ..> ResultRows
+Player1 ..> ResultGame
+Mastermind "1" *-- "1" Player2
+Player2 ..> ProposedRows
+Mastermind "1" *-- "1" Board
+Board "1" *-- "1" SecretRow
+Board "1" *-- "12" ProposedRows
+Board "1" *-- "12" ResultRows
+SecretRow "1" *-- "5" tokensCombination
+ProposedRows "1" *-- "5" tokensCombination
+tokensCombination ^-- ColorTokenRed
+tokensCombination ^-- ColorTokenBlue
+tokensCombination ^-- ColorTokenGreen
+tokensCombination ^-- ColorTokenYellow
+tokensCombination ^-- ColorTokenPink
+tokensCombination ^-- ColorTokenWhite
+tokensCombination ^-- ColorTokenBlack
+tokensCombination ^-- ColorTokenBrown
+ResultRows "1" *-- "[0..5]" tokensResult
+tokensResult ^-- ColorResultBlack
+tokensResult ^-- ColorResultWhite
+
+@enduml
